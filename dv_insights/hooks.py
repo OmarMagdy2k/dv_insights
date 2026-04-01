@@ -83,7 +83,10 @@ app_license = "mit"
 # ------------
 
 # before_install = "dv_insights.install.before_install"
-# after_install = "dv_insights.install.after_install"
+after_install = [
+    "dv_insights.setup.setup_implementation_metrics_fields.execute",
+    "dv_insights.setup.setup_training_data.execute",
+]
 
 # Uninstallation
 # ------------

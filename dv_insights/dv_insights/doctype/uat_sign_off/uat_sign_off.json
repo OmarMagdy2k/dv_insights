@@ -1,0 +1,213 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "UAT-.YYYY.-.#####",
+ "creation": "2026-03-12 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "customer",
+  "contact",
+  "contact_first_name",
+  "contact_last_name",
+  "cb_01",
+  "date",
+  "project_owner",
+  "frappe_project_owner",
+  "section_project_basics",
+  "project",
+  "project_description",
+  "section_uat_details",
+  "uat_details",
+  "section_deliverable_approval",
+  "deliverable_approval",
+  "section_uat_acceptance",
+  "project_manager_signature",
+  "column_break_anic",
+  "client_signature",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "contact",
+   "fieldtype": "Link",
+   "label": "Contact",
+   "options": "Contact"
+  },
+  {
+   "fetch_from": "contact.first_name",
+   "fieldname": "contact_first_name",
+   "fieldtype": "Data",
+   "label": "Contact First Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "contact.last_name",
+   "fieldname": "contact_last_name",
+   "fieldtype": "Data",
+   "label": "Contact Last Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb_01",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date"
+  },
+  {
+   "fieldname": "project_owner",
+   "fieldtype": "Data",
+   "label": "Project Owner"
+  },
+  {
+   "fieldname": "frappe_project_owner",
+   "fieldtype": "Link",
+   "label": "Frappe Project Owner",
+   "options": "User"
+  },
+  {
+   "fieldname": "section_project_basics",
+   "fieldtype": "Section Break",
+   "label": "Project Basics"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Project",
+   "options": "Project",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "project_description",
+   "fieldtype": "Text Editor",
+   "label": "Project Description"
+  },
+  {
+   "fieldname": "section_uat_details",
+   "fieldtype": "Section Break",
+   "label": "UAT Details"
+  },
+  {
+   "fieldname": "uat_details",
+   "fieldtype": "Table",
+   "label": "UAT Details",
+   "options": "UAT Detail"
+  },
+  {
+   "fieldname": "section_deliverable_approval",
+   "fieldtype": "Section Break",
+   "label": "Deliverable Approval"
+  },
+  {
+   "default": "<p><strong>Deliverable Approval:</strong><br><strong>Signing off on this document signifies that the Customer\u2019s representative is satisfied with the completed deliverable listed above.</strong></p>",
+   "fieldname": "deliverable_approval",
+   "fieldtype": "Text Editor",
+   "label": "Deliverable Approval"
+  },
+  {
+   "fieldname": "section_uat_acceptance",
+   "fieldtype": "Section Break",
+   "label": "UAT Acceptance"
+  },
+  {
+   "fieldname": "project_manager_signature",
+   "fieldtype": "Attach",
+   "label": "Project Manager's Signature"
+  },
+  {
+   "fieldname": "column_break_anic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "client_signature",
+   "fieldtype": "Attach",
+   "label": "Client Signature"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "UAT Sign-off",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-03-31 10:04:30.476335",
+ "modified_by": "Administrator",
+ "module": "Dv Insights",
+ "name": "UAT Sign-off",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "search_fields": "customer,project",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Yellow",
+   "title": "Draft"
+  },
+  {
+   "color": "Green",
+   "title": "Submitted"
+  },
+  {
+   "color": "Red",
+   "title": "Cancelled"
+  }
+ ],
+ "title_field": "project",
+ "track_changes": 1
+}

@@ -1,0 +1,54 @@
+{
+ "actions": [],
+ "creation": "2026-03-18 10:00:00",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "department_name",
+  "team_leader",
+  "team_leader_name"
+ ],
+ "fields": [
+  {
+   "columns": 3,
+   "fieldname": "department_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Department Name",
+   "options": "Department",
+   "reqd": 1
+  },
+  {
+   "columns": 3,
+   "fieldname": "team_leader",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "label": "Team Leader",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "columns": 3,
+   "fetch_from": "team_leader.employee_name",
+   "fieldname": "team_leader_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Team Leader Name",
+   "read_only": 1
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2026-03-31 10:04:30.182552",
+ "modified_by": "Administrator",
+ "module": "Dv Insights",
+ "name": "Training Department",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "idx",
+ "sort_order": "ASC",
+ "states": []
+}

@@ -1,0 +1,295 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:title",
+ "creation": "2026-03-26 10:17:58.701030",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "customer_details_section",
+  "company_name",
+  "company_employee_size",
+  "link_to_linkedin_page",
+  "region",
+  "country",
+  "industry",
+  "migrated_from",
+  "hosting_type",
+  "frappe_products_in_use",
+  "modules_opted",
+  "column_break_about",
+  "about_customer",
+  "images_section",
+  "customer_brand_logo",
+  "cover_image",
+  "project_information_section",
+  "challenges",
+  "column_break_benefits",
+  "benefits",
+  "column_break_impact",
+  "impact",
+  "customer_testimonial_section",
+  "testimonial",
+  "column_break_product_user",
+  "product_user",
+  "product_user_designation",
+  "product_user_image",
+  "partner_section",
+  "implementation_partner",
+  "link_to_detailed_story_section",
+  "link",
+  "author_details_section",
+  "author_name",
+  "i_am",
+  "author_email"
+ ],
+ "fields": [
+  {
+   "description": "Eg. Kenya's largest horticulture company manages their supply chain with ERPNext",
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "customer_details_section",
+   "fieldtype": "Section Break",
+   "label": "Customer Details"
+  },
+  {
+   "fieldname": "company_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Company Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "company_employee_size",
+   "fieldtype": "Select",
+   "label": "Company Employee Size",
+   "options": "\n1-10\n11-50\n51-200\n201-1000\n1000 or above"
+  },
+  {
+   "description": "This helps us verify the employee size of customer",
+   "fieldname": "link_to_linkedin_page",
+   "fieldtype": "Data",
+   "label": "Link to LinkedIn Page",
+   "options": "URL"
+  },
+  {
+   "fieldname": "region",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Region",
+   "options": "Territory",
+   "reqd": 1
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Country",
+   "options": "Country",
+   "reqd": 1
+  },
+  {
+   "description": "Mention industry description, corporate location, Scale (# of warehouses, items, vendors, invoices), Website and any other supporting information",
+   "fieldname": "industry",
+   "fieldtype": "Data",
+   "label": "Industry"
+  },
+  {
+   "default": "Others",
+   "fieldname": "migrated_from",
+   "fieldtype": "Select",
+   "label": "Migrated from",
+   "options": "Others\nSAP\nOracle\nMicrosoft Dynamics\nQuickBooks\nTally\nZoho\nOdoo\nCustom Software\nSpreadsheets"
+  },
+  {
+   "fieldname": "hosting_type",
+   "fieldtype": "Select",
+   "label": "Hosting Type",
+   "options": "\nFrappe Cloud\nHybrid Cloud\nOther Cloud"
+  },
+  {
+   "description": "Eg. ERPNext, FrappeHR, Insights, Gameplan",
+   "fieldname": "frappe_products_in_use",
+   "fieldtype": "Small Text",
+   "label": "Frappe Products in use"
+  },
+  {
+   "description": "Mention all the modules currently in use, available out of the box or customised. Eg. CRM, Inventory, Warehouse Management, OMS, DMS",
+   "fieldname": "modules_opted",
+   "fieldtype": "Small Text",
+   "label": "Modules opted"
+  },
+  {
+   "fieldname": "column_break_about",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "about_customer",
+   "fieldtype": "Text Editor",
+   "label": "About Customer"
+  },
+  {
+   "fieldname": "images_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "customer_brand_logo",
+   "fieldtype": "Attach Image",
+   "label": "Customer brand logo",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cover_image",
+   "fieldtype": "Attach Image",
+   "label": "Cover Image",
+   "reqd": 1
+  },
+  {
+   "fieldname": "project_information_section",
+   "fieldtype": "Section Break",
+   "label": "Project Information"
+  },
+  {
+   "description": "Describe in a third-person language. Introduce relevant people who were involved in the project and share their personal stories. Eg. Company X was facing challenges such as A, B, and C, due to which their CEO Mr. Y, evaluated multiple solutions. Describe challenges in detail, and dive into the industry or region-specific pains too.",
+   "fieldname": "challenges",
+   "fieldtype": "Text Editor",
+   "label": "Challenges",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_benefits",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Explain how ERPNext solves these challenges in detail.",
+   "fieldname": "benefits",
+   "fieldtype": "Text Editor",
+   "label": "Benefits",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_impact",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "What is the measurable impact of moving to ERPNext? It could be dollars saved, revenue increase, or time saved. Quantify the impact as much as possible.",
+   "fieldname": "impact",
+   "fieldtype": "Text Editor",
+   "label": "Impact",
+   "reqd": 1
+  },
+  {
+   "fieldname": "customer_testimonial_section",
+   "fieldtype": "Section Break",
+   "label": "Customer Testimonial"
+  },
+  {
+   "description": "It is recommended to add a 2-line testimonial from the users of the application. This adds credibility to your story.",
+   "fieldname": "testimonial",
+   "fieldtype": "Text Editor",
+   "label": "Testimonial"
+  },
+  {
+   "fieldname": "column_break_product_user",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "product_user",
+   "fieldtype": "Data",
+   "label": "Product User"
+  },
+  {
+   "fieldname": "product_user_designation",
+   "fieldtype": "Data",
+   "label": "Product User designation"
+  },
+  {
+   "fieldname": "product_user_image",
+   "fieldtype": "Attach Image",
+   "label": "Product User Image"
+  },
+  {
+   "fieldname": "partner_section",
+   "fieldtype": "Section Break",
+   "label": "Partner (If applicable)"
+  },
+  {
+   "fieldname": "implementation_partner",
+   "fieldtype": "Data",
+   "label": "Implementation Partner"
+  },
+  {
+   "fieldname": "link_to_detailed_story_section",
+   "fieldtype": "Section Break",
+   "label": "Link to detailed story"
+  },
+  {
+   "description": "If you have a detailed blog (on your website) or a video interview or speech about the story uploaded on youtube, then add the link here.",
+   "fieldname": "link",
+   "fieldtype": "Data",
+   "label": "Link",
+   "options": "URL"
+  },
+  {
+   "fieldname": "author_details_section",
+   "fieldtype": "Section Break",
+   "label": "Author details"
+  },
+  {
+   "fieldname": "author_name",
+   "fieldtype": "Data",
+   "label": "Author Name"
+  },
+  {
+   "fieldname": "i_am",
+   "fieldtype": "Select",
+   "label": "I am",
+   "options": "\nFrappe Customer\nFrappe Partner\nCommunity Member"
+  },
+  {
+   "description": "We will reach out to you if we want to clarify the details in the story before publishing it.",
+   "fieldname": "author_email",
+   "fieldtype": "Data",
+   "label": "Author Email",
+   "options": "Email",
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-31 10:04:29.850221",
+ "modified_by": "Administrator",
+ "module": "Dv Insights",
+ "name": "Success Story",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "title",
+ "track_changes": 1
+}

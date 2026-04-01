@@ -1,0 +1,178 @@
+{
+ "actions": [],
+ "creation": "2026-03-18 10:00:00",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "subject",
+  "status",
+  "column_break_timer",
+  "expected_minutes",
+  "actual_minutes",
+  "section_break_time",
+  "start_time",
+  "column_break_time2",
+  "end_time",
+  "section_break_score",
+  "score",
+  "passing_score",
+  "result",
+  "column_break_score2",
+  "remarks",
+  "trainee_attach",
+  "section_break_tl",
+  "team_leader_remarks",
+  "section_break_desc",
+  "description",
+  "reference_material"
+ ],
+ "fields": [
+  {
+   "bold": 1,
+   "columns": 2,
+   "fieldname": "subject",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Subject",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "default": "Not Started",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Not Started\nIn Progress\nCompleted",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_timer",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 1,
+   "fieldname": "expected_minutes",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Expected (Min)",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "actual_minutes",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Actual (Min)",
+   "precision": "1",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_time",
+   "fieldtype": "Section Break",
+   "label": "Time Tracking"
+  },
+  {
+   "fieldname": "start_time",
+   "fieldtype": "Datetime",
+   "label": "Start Time",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_time2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "end_time",
+   "fieldtype": "Datetime",
+   "label": "End Time",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_score",
+   "fieldtype": "Section Break",
+   "label": "Evaluation"
+  },
+  {
+   "columns": 1,
+   "fieldname": "score",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Score (%)"
+  },
+  {
+   "default": "60",
+   "fieldname": "passing_score",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Passing Score (%)",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "result",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Result",
+   "options": "\nPass\nFail",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_score2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Trainee Remarks"
+  },
+  {
+   "fieldname": "trainee_attach",
+   "fieldtype": "Attach",
+   "label": "Trainee Attach"
+  },
+  {
+   "fieldname": "section_break_tl",
+   "fieldtype": "Section Break",
+   "label": "Team Leader Feedback"
+  },
+  {
+   "columns": 2,
+   "fieldname": "team_leader_remarks",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Team Leader Remarks"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_desc",
+   "fieldtype": "Section Break",
+   "label": "Description & Material"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reference_material",
+   "fieldtype": "Attach",
+   "label": "Reference Material",
+   "read_only": 1
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2026-03-31 10:04:29.990012",
+ "modified_by": "Administrator",
+ "module": "Dv Insights",
+ "name": "Training Assessment Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "idx",
+ "sort_order": "ASC",
+ "states": []
+}

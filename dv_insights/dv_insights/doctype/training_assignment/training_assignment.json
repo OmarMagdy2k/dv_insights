@@ -1,0 +1,279 @@
+{
+ "actions": [],
+ "autoname": "TRAIN-.department.-.YYYY.-.#####",
+ "creation": "2026-03-18 10:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_employee",
+  "employee",
+  "employee_name",
+  "designation",
+  "column_break_emp",
+  "department",
+  "team_leader",
+  "team_leader_name",
+  "section_template",
+  "template",
+  "column_break_template",
+  "status",
+  "section_schedule",
+  "assignment_date",
+  "expected_completion_date",
+  "column_break_schedule",
+  "actual_completion_date",
+  "section_progress",
+  "progress_html",
+  "section_actions",
+  "assessment_actions_html",
+  "section_assessments",
+  "assessments",
+  "section_summary",
+  "total_expected_minutes",
+  "total_actual_minutes",
+  "column_break_summary",
+  "progress_percentage",
+  "overall_score",
+  "section_remarks",
+  "overall_remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_employee",
+   "fieldtype": "Section Break",
+   "label": "Employee Information"
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.designation",
+   "fieldname": "designation",
+   "fieldtype": "Data",
+   "label": "Designation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_emp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Training Department",
+   "options": "Department",
+   "reqd": 1
+  },
+  {
+   "fieldname": "team_leader",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Team Leader",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "team_leader.employee_name",
+   "fieldname": "team_leader_name",
+   "fieldtype": "Data",
+   "label": "Team Leader Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_template",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "template",
+   "fieldtype": "Link",
+   "label": "Training Template",
+   "options": "Training Template",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_template",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Not Started",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Not Started\nIn Progress\nCompleted\nCancelled"
+  },
+  {
+   "fieldname": "section_schedule",
+   "fieldtype": "Section Break",
+   "label": "Schedule"
+  },
+  {
+   "default": "Today",
+   "fieldname": "assignment_date",
+   "fieldtype": "Date",
+   "label": "Assignment Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "expected_completion_date",
+   "fieldtype": "Date",
+   "label": "Expected Completion Date"
+  },
+  {
+   "fieldname": "column_break_schedule",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "actual_completion_date",
+   "fieldtype": "Date",
+   "label": "Actual Completion Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_progress",
+   "fieldtype": "Section Break",
+   "label": "Progress Overview"
+  },
+  {
+   "fieldname": "progress_html",
+   "fieldtype": "HTML",
+   "label": "Progress Dashboard"
+  },
+  {
+   "fieldname": "section_actions",
+   "fieldtype": "Section Break",
+   "label": "Assessment Controls"
+  },
+  {
+   "fieldname": "assessment_actions_html",
+   "fieldtype": "HTML",
+   "label": "Assessment Actions"
+  },
+  {
+   "fieldname": "section_assessments",
+   "fieldtype": "Section Break",
+   "label": "Assessments"
+  },
+  {
+   "fieldname": "assessments",
+   "fieldtype": "Table",
+   "label": "Assessments",
+   "options": "Training Assessment Item"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_summary",
+   "fieldtype": "Section Break",
+   "label": "Summary"
+  },
+  {
+   "fieldname": "total_expected_minutes",
+   "fieldtype": "Int",
+   "label": "Total Expected (Min)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_actual_minutes",
+   "fieldtype": "Float",
+   "label": "Total Actual (Min)",
+   "precision": "1",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_summary",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "progress_percentage",
+   "fieldtype": "Percent",
+   "label": "Progress",
+   "read_only": 1
+  },
+  {
+   "fieldname": "overall_score",
+   "fieldtype": "Float",
+   "label": "Overall Score (%)",
+   "precision": "1",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_remarks",
+   "fieldtype": "Section Break",
+   "label": "Overall Remarks"
+  },
+  {
+   "fieldname": "overall_remarks",
+   "fieldtype": "Text Editor",
+   "label": "Overall Remarks"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-31 10:05:54.620465",
+ "modified_by": "Administrator",
+ "module": "Dv Insights",
+ "name": "Training Assignment",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Gray",
+   "title": "Not Started"
+  },
+  {
+   "color": "Blue",
+   "title": "In Progress"
+  },
+  {
+   "color": "Green",
+   "title": "Completed"
+  },
+  {
+   "color": "Red",
+   "title": "Cancelled"
+  }
+ ],
+ "title_field": "employee_name",
+ "track_changes": 1
+}

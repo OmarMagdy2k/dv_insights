@@ -1,0 +1,76 @@
+{
+ "actions": [],
+ "creation": "2026-03-18 10:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_departments",
+  "departments",
+  "section_defaults",
+  "default_passing_score",
+  "column_break_defaults",
+  "auto_assign_team_leader"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_departments",
+   "fieldtype": "Section Break",
+   "label": "Departments & Team Leaders"
+  },
+  {
+   "fieldname": "departments",
+   "fieldtype": "Table",
+   "label": "Departments",
+   "options": "Training Department",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_defaults",
+   "fieldtype": "Section Break",
+   "label": "Default Settings"
+  },
+  {
+   "default": "60",
+   "fieldname": "default_passing_score",
+   "fieldtype": "Int",
+   "label": "Default Passing Score (%)"
+  },
+  {
+   "fieldname": "column_break_defaults",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "auto_assign_team_leader",
+   "fieldtype": "Check",
+   "label": "Auto-Assign Team Leader from Department"
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-03-31 10:04:30.228683",
+ "modified_by": "Administrator",
+ "module": "Dv Insights",
+ "name": "Training Configuration",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "All"
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
