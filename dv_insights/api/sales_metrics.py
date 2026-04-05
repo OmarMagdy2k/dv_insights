@@ -18,7 +18,7 @@ from datetime import datetime, timedelta
 # Metric 1: Sales to Implementation TAT
 DEAL_DOCTYPE = "CRM Deal"
 DEAL_CLOSED_DATE = "closed_date"       # Date when the deal was closed/won
-DEAL_HANDOVER_DATE = "custom_implementation_handover_date"  # Date implementation handover completed
+DEAL_HANDOVER_DATE = "implementation_handover_date"  # Date implementation handover completed
 DEAL_WON_STATUS = "Won"                       # Status value for won deals
 DEAL_STATUS_FIELD = "status"
 DEAL_DATE_FIELD = DEAL_CLOSED_DATE             # Used for period filtering
