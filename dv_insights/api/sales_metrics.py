@@ -128,6 +128,7 @@ def get_lead_sla_data(from_date=None, to_date=None):
             ON log.parent = crmlead.name
         WHERE crmlead.creation >= %(from_date)s 
             AND crmlead.creation < DATE_ADD(%(to_date)s, INTERVAL 1 DAY)
+            AND log.from = 'New'
             AND log.to = 'Contacted'
             AND log.duration IS NOT NULL
         """.format(dt=LEAD_DOCTYPE), {

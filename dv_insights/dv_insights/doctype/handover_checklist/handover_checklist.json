@@ -1,0 +1,126 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-04-06 17:16:36.987046",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "handover_date",
+  "opportunity_updated",
+  "agreement_signed",
+  "payment_received",
+  "column_break_handover",
+  "sales_order_created",
+  "sales_invoice_created",
+  "project",
+  "payment_received_date",
+  "section_break_feedback",
+  "clarity",
+  "completeness",
+  "feedback_remark"
+ ],
+ "fields": [
+  {
+   "fieldname": "handover_date",
+   "fieldtype": "Date",
+   "label": "Handover Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "opportunity_updated",
+   "fieldtype": "Select",
+   "label": "Opportunity Updated",
+   "options": "\nYes\nNo",
+   "reqd": 1
+  },
+  {
+   "fieldname": "agreement_signed",
+   "fieldtype": "Select",
+   "label": "Agreement Signed",
+   "options": "\nYes\nNo",
+   "reqd": 1
+  },
+  {
+   "fieldname": "payment_received",
+   "fieldtype": "Select",
+   "label": "Payment Received",
+   "options": "\nYes\nNo",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_handover",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sales_order_created",
+   "fieldtype": "Data",
+   "label": "Sales Order Created",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sales_invoice_created",
+   "fieldtype": "Data",
+   "label": "Sales Invoice Created",
+   "reqd": 1
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Project"
+  },
+  {
+   "fieldname": "payment_received_date",
+   "fieldtype": "Date",
+   "label": "Payment Received Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_feedback",
+   "fieldtype": "Section Break",
+   "label": "Handover Feedback"
+  },
+  {
+   "fieldname": "clarity",
+   "fieldtype": "Rating",
+   "label": "Clarity"
+  },
+  {
+   "fieldname": "completeness",
+   "fieldtype": "Rating",
+   "label": "Completeness"
+  },
+  {
+   "fieldname": "feedback_remark",
+   "fieldtype": "Text",
+   "label": "Feedback Remark"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-04-06 17:27:00.000000",
+ "modified_by": "Administrator",
+ "module": "Dv Insights",
+ "name": "Handover Checklist",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
