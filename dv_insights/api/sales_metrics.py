@@ -113,20 +113,27 @@ def get_lead_sla_data(from_date=None, to_date=None):
     """
     from_date = from_date or "2000-01-01"
     to_date = to_date or nowdate()
-    frappe.errprint(f"Fetching leads from {from_date} to {to_date} for SLA calculation")
 
     leads = frappe.db.sql("""
         SELECT
-            name,
-            creation,
-            first_responded_on,
-            first_response_time,
-            response_by,
-            sla_creation,
-            DATE_FORMAT(creation, '%%Y-%%m') AS lead_month
-        FROM `tab{dt}`
-        WHERE creation >= %(from_date)s AND creation < DATE_ADD(%(to_date)s, INTERVAL 1 DAY)
-    """.format(dt=LEAD_DOCTYPE), {"from_date": from_date, "to_date": to_date}, as_dict=True)
+            crmlead.name,
+            crmlead.creation,
+            crmlead.first_responded_on,
+            crmlead.first_response_time,
+            crmlead.response_by,
+            DATE_FORMAT(crmlead.creation, '%%Y-%%m') AS lead_month,
+            log.duration AS duration
+        FROM `tab{dt}` crmlead
+        JOIN `tabCRM Status Change Log` log 
+            ON log.parent = crmlead.name
+        WHERE crmlead.creation >= %(from_date)s 
+            AND crmlead.creation < DATE_ADD(%(to_date)s, INTERVAL 1 DAY)
+            AND log.to = 'Contacted'
+            AND log.duration IS NOT NULL
+        """.format(dt=LEAD_DOCTYPE), {
+                "from_date": from_date,
+                "to_date": to_date
+            }, as_dict=True)
 
     if not leads:
         return {
@@ -144,21 +151,11 @@ def get_lead_sla_data(from_date=None, to_date=None):
 
         monthly_data[m]["total"] += 1
 
-        # sla_creation "datetime" - response_by "datetime" = first_response_time "duration in seconds"
-        if lead.sla_creation and lead.response_by:
-            response_seconds = flt(lead.first_response_time)
+        if lead.duration:
+            response_seconds = lead.duration
             if response_seconds > 0 and response_seconds <= SLA_HOURS * 3600:
                 monthly_data[m]["within_sla"] += 1
                 total_within_sla += 1
-
-        # first_response_time is a Duration field (stored as seconds in Frappe)
-        # response_seconds = flt(lead.first_response_time)
-
-        # if lead.first_responded_on and response_seconds > 0:
-        #     response_hours = response_seconds / 3600
-        #     if response_hours <= SLA_HOURS:
-        #         monthly_data[m]["within_sla"] += 1
-        #         total_within_sla += 1
 
     # KPI
     total_leads = len(leads)
