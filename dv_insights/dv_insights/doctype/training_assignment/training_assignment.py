@@ -220,3 +220,38 @@ def reset_assessment(docname, row_idx):
 	frappe.db.commit()
 
 	return {"status": "Not Started"}
+
+@frappe.whitelist()
+def get_calendar_events(start, end, filters=None):
+	conditions = []
+	values = {"start": start, "end": end}
+
+	if filters:
+		filters = frappe.parse_json(filters)
+
+		if isinstance(filters, list):
+			for f in filters:
+				if len(f) >= 3 and f[2]:
+					conditions.append(f"ta.`{f[0]}` = %({f[0]})s")
+					values[f[0]] = f[2]
+		elif isinstance(filters, dict):
+			for key in ("department", "employee", "team_leader", "status"):
+				if filters.get(key):
+					conditions.append(f"ta.`{key}` = %({key})s")
+					values[key] = filters[key]
+
+	conditions_str = (" AND " + " AND ".join(conditions)) if conditions else ""
+
+	return frappe.db.sql(f"""
+		SELECT
+			ta.name,
+			ta.assignment_date,
+			IFNULL(ta.expected_completion_date, ta.assignment_date) AS expected_completion_date,
+			CONCAT(ta.employee_name, '\n', ta.template) AS title,
+			ta.status,
+			1 AS allDay
+		FROM `tabTraining Assignment` ta
+		WHERE ta.assignment_date <= %(end)s
+			AND IFNULL(ta.expected_completion_date, ta.assignment_date) >= %(start)s
+			{conditions_str}
+	""", values, as_dict=True)
