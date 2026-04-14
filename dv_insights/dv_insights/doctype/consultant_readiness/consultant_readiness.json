@@ -1,0 +1,261 @@
+{
+ "actions": [],
+ "autoname": "field:employee_name",
+ "creation": "2026-04-14 12:07:11.187784",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "employee_name",
+  "user_id",
+  "mentor",
+  "column_break_4",
+  "date_of_joining",
+  "target_completion",
+  "status",
+  "completion_date",
+  "mentor_checklist_section",
+  "overall_understanding",
+  "core_modules",
+  "hrms_payroll",
+  "manufacturing",
+  "column_break_5kpf",
+  "other_products",
+  "doctypes_print_formats",
+  "system_settings_module_settings_global_defaults",
+  "user_and_role_permissions",
+  "process_readiness_section",
+  "implementation_process",
+  "project_management_basics",
+  "communication_skills",
+  "solutioning",
+  "column_break_miui",
+  "escalation_protocols",
+  "uat_management",
+  "change_management",
+  "hypercare_playbook",
+  "section_break_0jhq",
+  "additional_details"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Employee",
+   "options": "Employee"
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name",
+   "unique": 1
+  },
+  {
+   "fetch_from": "employee.user_id",
+   "fieldname": "user_id",
+   "fieldtype": "Link",
+   "label": "User ID",
+   "options": "User"
+  },
+  {
+   "fieldname": "mentor",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Mentor",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "employee.date_of_joining",
+   "fieldname": "date_of_joining",
+   "fieldtype": "Date",
+   "label": "Date of Joining",
+   "read_only": 1
+  },
+  {
+   "fieldname": "target_completion",
+   "fieldtype": "Date",
+   "label": "Target Completion Date"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "\nOpen\nIn Progress\nOn Hold\nCancelled\nCompleted",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.status == \"Completed\"",
+   "fieldname": "completion_date",
+   "fieldtype": "Date",
+   "label": "Completion Date",
+   "mandatory_depends_on": "eval:doc.status==\"Certified Awesome\""
+  },
+  {
+   "bold": 1,
+   "description": "To be filled my evaluator",
+   "fieldname": "mentor_checklist_section",
+   "fieldtype": "Section Break",
+   "label": "Product Readiness"
+  },
+  {
+   "default": "0",
+   "fieldname": "overall_understanding",
+   "fieldtype": "Check",
+   "label": "Overall understanding of ERPs"
+  },
+  {
+   "default": "0",
+   "fieldname": "core_modules",
+   "fieldtype": "Check",
+   "label": "Core Modules: Accounting, Selling, Buying, Stock"
+  },
+  {
+   "default": "0",
+   "fieldname": "hrms_payroll",
+   "fieldtype": "Check",
+   "label": "HRMS and Payroll"
+  },
+  {
+   "default": "0",
+   "fieldname": "manufacturing",
+   "fieldtype": "Check",
+   "label": "Manufacturing"
+  },
+  {
+   "fieldname": "column_break_5kpf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "other_products",
+   "fieldtype": "Check",
+   "label": "Insights , Lending, Drive, Wiki, GamePlan, CRM, HelpDesk"
+  },
+  {
+   "default": "0",
+   "fieldname": "doctypes_print_formats",
+   "fieldtype": "Check",
+   "label": "DocTypes, Custom Fields, Workflows, Letter Heads and Print Formats."
+  },
+  {
+   "default": "0",
+   "fieldname": "system_settings_module_settings_global_defaults",
+   "fieldtype": "Check",
+   "label": "System Settings, Module Settings, Global Defaults "
+  },
+  {
+   "default": "0",
+   "fieldname": "user_and_role_permissions",
+   "fieldtype": "Check",
+   "label": "User and Role Permissions"
+  },
+  {
+   "bold": 1,
+   "description": "To be filled by mentor",
+   "fieldname": "process_readiness_section",
+   "fieldtype": "Section Break",
+   "label": "Process Readiness"
+  },
+  {
+   "default": "0",
+   "fieldname": "implementation_process",
+   "fieldtype": "Check",
+   "label": "Understanding of implementation process"
+  },
+  {
+   "default": "0",
+   "fieldname": "project_management_basics",
+   "fieldtype": "Check",
+   "label": "Project management basics"
+  },
+  {
+   "default": "0",
+   "fieldname": "communication_skills",
+   "fieldtype": "Check",
+   "label": "Written and verbal communication skills"
+  },
+  {
+   "default": "0",
+   "fieldname": "solutioning",
+   "fieldtype": "Check",
+   "label": "Solutioning approach"
+  },
+  {
+   "fieldname": "column_break_miui",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "escalation_protocols",
+   "fieldtype": "Check",
+   "label": "User training / Knowledge transfer"
+  },
+  {
+   "default": "0",
+   "fieldname": "uat_management",
+   "fieldtype": "Check",
+   "label": "UAT management"
+  },
+  {
+   "default": "0",
+   "fieldname": "change_management",
+   "fieldtype": "Check",
+   "label": "Change management"
+  },
+  {
+   "default": "0",
+   "fieldname": "hypercare_playbook",
+   "fieldtype": "Check",
+   "label": "Hypercare playbook"
+  },
+  {
+   "fieldname": "section_break_0jhq",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "additional_details",
+   "fieldtype": "Text",
+   "label": "Additional Details"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-04-14 12:07:11.187784",
+ "modified_by": "Administrator",
+ "module": "Dv Insights",
+ "name": "Consultant Readiness",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "employee_name",
+ "track_changes": 1
+}

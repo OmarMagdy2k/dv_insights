@@ -1,0 +1,627 @@
+{
+ "actions": [],
+ "autoname": "PRM-EST-.#####",
+ "creation": "2026-04-14 12:31:40.310897",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "opportunity_from",
+  "party",
+  "party_name",
+  "column_break_28_column",
+  "posting_date",
+  "domain",
+  "status",
+  "customer_details",
+  "project_and_account_brief",
+  "qualification_details_section",
+  "current_state",
+  "pain_point",
+  "column_break_qual",
+  "impact",
+  "discovery_details_section",
+  "discovery_call_notes",
+  "pick_modules_section",
+  "accounts",
+  "hrms",
+  "selling",
+  "column_break_afgl",
+  "asset",
+  "manufacturing",
+  "setup",
+  "column_break_8",
+  "buying",
+  "payroll",
+  "stock",
+  "column_break_10",
+  "crm",
+  "project",
+  "custom_tasks",
+  "accounts_section",
+  "accounts_details",
+  "asset_section",
+  "asset_details",
+  "buying_section",
+  "buying_details",
+  "crm_section",
+  "crm_details",
+  "hrms_section",
+  "hrms_details",
+  "manufacturing_section",
+  "manufacturing_details",
+  "payroll_section",
+  "payroll_details",
+  "project_section",
+  "project_details",
+  "selling_section",
+  "selling_details",
+  "setup_section",
+  "setup_details",
+  "stock_section",
+  "stock_details",
+  "custom_task_section",
+  "custom_tasks_details",
+  "total_hours_section",
+  "currency",
+  "total_config_effort",
+  "total_other_effort",
+  "column_break_25",
+  "total_combined_effort",
+  "total_hourly_rate",
+  "total_amount",
+  "frappe_cloud_details",
+  "frappe_cloud_plan",
+  "column_break_26",
+  "cloud_validity",
+  "cloud_rate",
+  "column_break_27",
+  "uom",
+  "cloud_amount",
+  "amc_details",
+  "amc",
+  "column_break_28",
+  "amc_validity",
+  "amc_rate",
+  "column_break_29",
+  "amc_uom",
+  "amc_amount",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "opportunity_from",
+   "fieldtype": "Link",
+   "label": "Opportunity From",
+   "options": "DocType",
+   "reqd": 1
+  },
+  {
+   "fieldname": "party",
+   "fieldtype": "Dynamic Link",
+   "label": "Party",
+   "options": "opportunity_from",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "customer.customer_name",
+   "fieldname": "party_name",
+   "fieldtype": "Data",
+   "label": "Party Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_28_column",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "fieldname": "domain",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Domain",
+   "options": "Manufacturing\nServices\nDistribution\nHealthcare\nEducation\nRetail"
+  },
+  {
+   "default": "Open",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Open\nEstimated\nConverted\nHanded Over\nLost\nCancelled",
+   "reqd": 1
+  },
+  {
+   "fieldname": "customer_details",
+   "fieldtype": "Section Break",
+   "label": "Company Details"
+  },
+  {
+   "fieldname": "project_and_account_brief",
+   "fieldtype": "Text Editor",
+   "label": "Project and Account Brief"
+  },
+  {
+   "depends_on": "eval:doc.lead_qualification",
+   "fieldname": "qualification_details_section",
+   "fieldtype": "Section Break",
+   "label": "Qualification Details"
+  },
+  {
+   "fetch_from": "lead_qualification.current_state",
+   "fieldname": "current_state",
+   "fieldtype": "Text",
+   "label": "Current State",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "lead_qualification.pain_point",
+   "fieldname": "pain_point",
+   "fieldtype": "Text",
+   "label": "Pain Point",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_qual",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "lead_qualification.impact",
+   "fetch_if_empty": 1,
+   "fieldname": "impact",
+   "fieldtype": "Text",
+   "label": "Impact",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.lead_qualification",
+   "fieldname": "discovery_details_section",
+   "fieldtype": "Section Break",
+   "label": "Discovery Details"
+  },
+  {
+   "fetch_from": "lead_qualification.discovery_call_notes",
+   "fieldname": "discovery_call_notes",
+   "fieldtype": "Text Editor",
+   "label": "Discovery Call Notes",
+   "read_only": 1
+  },
+  {
+   "fieldname": "pick_modules_section",
+   "fieldtype": "Section Break",
+   "label": "Pick Modules"
+  },
+  {
+   "default": "0",
+   "fieldname": "accounts",
+   "fieldtype": "Check",
+   "label": "Accounts"
+  },
+  {
+   "default": "0",
+   "fieldname": "hrms",
+   "fieldtype": "Check",
+   "label": "HRMS"
+  },
+  {
+   "default": "0",
+   "fieldname": "selling",
+   "fieldtype": "Check",
+   "label": "Selling"
+  },
+  {
+   "fieldname": "column_break_afgl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "asset",
+   "fieldtype": "Check",
+   "label": "Asset"
+  },
+  {
+   "default": "0",
+   "fieldname": "manufacturing",
+   "fieldtype": "Check",
+   "label": "Manufacturing"
+  },
+  {
+   "default": "0",
+   "fieldname": "setup",
+   "fieldtype": "Check",
+   "label": "Setup"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "buying",
+   "fieldtype": "Check",
+   "label": "Buying"
+  },
+  {
+   "default": "0",
+   "fieldname": "payroll",
+   "fieldtype": "Check",
+   "label": "Payroll"
+  },
+  {
+   "default": "0",
+   "fieldname": "stock",
+   "fieldtype": "Check",
+   "label": "Stock"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "crm",
+   "fieldtype": "Check",
+   "label": "CRM"
+  },
+  {
+   "default": "0",
+   "fieldname": "project",
+   "fieldtype": "Check",
+   "label": "Project"
+  },
+  {
+   "default": "0",
+   "fieldname": "custom_tasks",
+   "fieldtype": "Check",
+   "label": "Custom Tasks"
+  },
+  {
+   "depends_on": "eval:doc.accounts",
+   "fieldname": "accounts_section",
+   "fieldtype": "Section Break",
+   "label": "Accounts"
+  },
+  {
+   "fieldname": "accounts_details",
+   "fieldtype": "Table",
+   "label": "Estimation Details",
+   "options": "Estimation Detail"
+  },
+  {
+   "depends_on": "eval:doc.asset",
+   "fieldname": "asset_section",
+   "fieldtype": "Section Break",
+   "label": "Asset"
+  },
+  {
+   "fieldname": "asset_details",
+   "fieldtype": "Table",
+   "label": "Estimation Details",
+   "options": "Estimation Detail"
+  },
+  {
+   "depends_on": "eval:doc.buying",
+   "fieldname": "buying_section",
+   "fieldtype": "Section Break",
+   "label": "Buying"
+  },
+  {
+   "fieldname": "buying_details",
+   "fieldtype": "Table",
+   "label": "Estimation Details",
+   "options": "Estimation Detail"
+  },
+  {
+   "depends_on": "eval:doc.crm",
+   "fieldname": "crm_section",
+   "fieldtype": "Section Break",
+   "label": "CRM"
+  },
+  {
+   "fieldname": "crm_details",
+   "fieldtype": "Table",
+   "label": "Estimation Details",
+   "options": "Estimation Detail"
+  },
+  {
+   "depends_on": "eval:doc.hrms",
+   "fieldname": "hrms_section",
+   "fieldtype": "Section Break",
+   "label": "HRMS"
+  },
+  {
+   "fieldname": "hrms_details",
+   "fieldtype": "Table",
+   "label": "Estimation Details",
+   "options": "Estimation Detail"
+  },
+  {
+   "depends_on": "eval:doc.manufacturing",
+   "fieldname": "manufacturing_section",
+   "fieldtype": "Section Break",
+   "label": "Manufacturing"
+  },
+  {
+   "fieldname": "manufacturing_details",
+   "fieldtype": "Table",
+   "label": "Estimation Details",
+   "options": "Estimation Detail"
+  },
+  {
+   "depends_on": "eval:doc.payroll",
+   "fieldname": "payroll_section",
+   "fieldtype": "Section Break",
+   "label": "Payroll"
+  },
+  {
+   "fieldname": "payroll_details",
+   "fieldtype": "Table",
+   "label": "Estimation Details",
+   "options": "Estimation Detail"
+  },
+  {
+   "depends_on": "eval:doc.project",
+   "fieldname": "project_section",
+   "fieldtype": "Section Break",
+   "label": "Project"
+  },
+  {
+   "fieldname": "project_details",
+   "fieldtype": "Table",
+   "label": "Estimation Details",
+   "options": "Estimation Detail"
+  },
+  {
+   "depends_on": "eval:doc.selling",
+   "fieldname": "selling_section",
+   "fieldtype": "Section Break",
+   "label": "Selling"
+  },
+  {
+   "fieldname": "selling_details",
+   "fieldtype": "Table",
+   "label": "Estimation Details",
+   "options": "Estimation Detail"
+  },
+  {
+   "depends_on": "eval:doc.setup",
+   "fieldname": "setup_section",
+   "fieldtype": "Section Break",
+   "label": "Setup"
+  },
+  {
+   "fieldname": "setup_details",
+   "fieldtype": "Table",
+   "label": "Estimation Details",
+   "options": "Estimation Detail"
+  },
+  {
+   "depends_on": "eval:doc.stock",
+   "fieldname": "stock_section",
+   "fieldtype": "Section Break",
+   "label": "Stock"
+  },
+  {
+   "fieldname": "stock_details",
+   "fieldtype": "Table",
+   "label": "Estimation Details",
+   "options": "Estimation Detail"
+  },
+  {
+   "depends_on": "eval:doc.custom_tasks",
+   "fieldname": "custom_task_section",
+   "fieldtype": "Section Break",
+   "label": "Custom Tasks"
+  },
+  {
+   "fieldname": "custom_tasks_details",
+   "fieldtype": "Table",
+   "label": "Estimation Details",
+   "options": "Custom Estimation Detail"
+  },
+  {
+   "fieldname": "total_hours_section",
+   "fieldtype": "Section Break",
+   "label": "Total Implementation Hours"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "total_config_effort",
+   "fieldtype": "Float",
+   "label": "Total Configuration Effort",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_other_effort",
+   "fieldtype": "Float",
+   "label": "Total Other Effort",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_25",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_combined_effort",
+   "fieldtype": "Float",
+   "label": "Total Combined Effort",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_hourly_rate",
+   "fieldtype": "Float",
+   "label": "Total Hourly Rate",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "frappe_cloud_details",
+   "fieldtype": "Section Break",
+   "label": "Frappe Cloud Details"
+  },
+  {
+   "fieldname": "frappe_cloud_plan",
+   "fieldtype": "Small Text",
+   "label": "Frappe Cloud Plan"
+  },
+  {
+   "fieldname": "column_break_26",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cloud_validity",
+   "fieldtype": "Float",
+   "label": "Validity"
+  },
+  {
+   "fieldname": "cloud_rate",
+   "fieldtype": "Currency",
+   "label": "Rate"
+  },
+  {
+   "fieldname": "column_break_27",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Select",
+   "label": "UOM",
+   "options": "Month\nYear"
+  },
+  {
+   "fieldname": "cloud_amount",
+   "fieldtype": "Currency",
+   "label": "Amount",
+   "options": "currency"
+  },
+  {
+   "fieldname": "amc_details",
+   "fieldtype": "Section Break",
+   "label": "AMC Details"
+  },
+  {
+   "default": "AMC",
+   "fieldname": "amc",
+   "fieldtype": "Small Text",
+   "label": "AMC"
+  },
+  {
+   "fieldname": "column_break_28",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amc_validity",
+   "fieldtype": "Float",
+   "label": "Validity"
+  },
+  {
+   "fieldname": "amc_rate",
+   "fieldtype": "Currency",
+   "label": "Rate",
+   "options": "currency"
+  },
+  {
+   "fieldname": "column_break_29",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amc_uom",
+   "fieldtype": "Select",
+   "label": "UOM",
+   "options": "Month\nYear"
+  },
+  {
+   "fieldname": "amc_amount",
+   "fieldtype": "Currency",
+   "label": "Amount",
+   "options": "currency"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "ERPNext Price Estimation",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "links": [],
+ "modified": "2026-04-14 12:31:40.310897",
+ "modified_by": "Administrator",
+ "module": "Dv Insights",
+ "name": "ERPNext Price Estimation",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Orange",
+   "title": "Open"
+  },
+  {
+   "color": "Cyan",
+   "title": "Estimated"
+  },
+  {
+   "color": "Green",
+   "title": "Converted"
+  },
+  {
+   "color": "Blue",
+   "title": "Handed Over"
+  },
+  {
+   "color": "Gray",
+   "title": "Lost"
+  },
+  {
+   "color": "Gray",
+   "title": "Cancelled"
+  }
+ ],
+ "track_changes": 1
+}

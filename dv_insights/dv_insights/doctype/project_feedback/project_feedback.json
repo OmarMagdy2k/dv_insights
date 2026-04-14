@@ -13,7 +13,7 @@
   "comprehensive_project_review",
   "date_pfen",
   "project_specific_feedback_section",
-  "training",
+  "training_effectiveness",
   "requirement_understanding",
   "column_break_txvv",
   "master_data_migration",
@@ -59,17 +59,13 @@
   },
   {
    "fieldname": "date_pfen",
-   "fieldtype": "Date"
+   "fieldtype": "Date",
+   "label": "Date"
   },
   {
    "fieldname": "project_specific_feedback_section",
    "fieldtype": "Section Break",
    "label": "Project Specific Feedback"
-  },
-  {
-   "fieldname": "training",
-   "fieldtype": "Rating",
-   "label": "Training"
   },
   {
    "fieldname": "requirement_understanding",
@@ -107,12 +103,17 @@
    "fieldname": "corrective_action_taken",
    "fieldtype": "Small Text",
    "label": "Corrective Action Taken"
+  },
+  {
+   "fieldname": "training_effectiveness",
+   "fieldtype": "Rating",
+   "label": "Training Effectiveness"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-03-31 10:04:30.692293",
+ "modified": "2026-04-14 12:09:46.611923",
  "modified_by": "Administrator",
  "module": "Dv Insights",
  "name": "Project Feedback",

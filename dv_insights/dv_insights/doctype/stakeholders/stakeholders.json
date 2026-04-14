@@ -1,0 +1,66 @@
+{
+ "actions": [],
+ "autoname": "hash",
+ "creation": "2026-04-14 12:23:29.397901",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "party_type",
+  "party_name",
+  "individuals_involved",
+  "role",
+  "contact_details"
+ ],
+ "fields": [
+  {
+   "fieldname": "party_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Party Type",
+   "options": "\nEmployee\nCustomer\nSales Partner"
+  },
+  {
+   "fieldname": "party_name",
+   "fieldtype": "Dynamic Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "label": "Party Name",
+   "options": "party_type"
+  },
+  {
+   "fieldname": "individuals_involved",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Individuals Involved"
+  },
+  {
+   "fieldname": "role",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Role"
+  },
+  {
+   "fieldname": "contact_details",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Contact Details"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-04-14 12:23:29.397901",
+ "modified_by": "Administrator",
+ "module": "Dv Insights",
+ "name": "Stakeholders",
+ "naming_rule": "Random",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

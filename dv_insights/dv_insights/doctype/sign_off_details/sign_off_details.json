@@ -1,0 +1,91 @@
+{
+ "actions": [],
+ "autoname": "hash",
+ "creation": "2026-04-14 12:20:33.098222",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "document_type",
+  "document_link",
+  "sign_off_proof",
+  "comments",
+  "column_break_7",
+  "date_of_sign_off",
+  "sign_off_by",
+  "position",
+  "on_behalf_of"
+ ],
+ "fields": [
+  {
+   "fieldname": "document_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Document Type",
+   "options": "Training Sign Off\nUser Acceptance Testing Sign Off\nGo Live Sign Off"
+  },
+  {
+   "fieldname": "document_link",
+   "fieldtype": "Dynamic Link",
+   "in_list_view": 1,
+   "label": "Document Link",
+   "options": "document_type"
+  },
+  {
+   "description": "Attach screenshot of confirmation over email or physical papers in PDF or MS Doc",
+   "fieldname": "sign_off_proof",
+   "fieldtype": "Attach",
+   "in_list_view": 1,
+   "label": "Sign Off Proof"
+  },
+  {
+   "fieldname": "comments",
+   "fieldtype": "Small Text",
+   "label": "Comments"
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date_of_sign_off",
+   "fieldtype": "Data",
+   "label": "Date of Sign off"
+  },
+  {
+   "fieldname": "sign_off_by",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Sign Off By",
+   "options": "Contact"
+  },
+  {
+   "fetch_from": "sign_off_by.designation",
+   "fieldname": "position",
+   "fieldtype": "Data",
+   "label": "Designation"
+  },
+  {
+   "fetch_from": "sign_off_by.company_name",
+   "fieldname": "on_behalf_of",
+   "fieldtype": "Data",
+   "label": "Company Name"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-04-14 12:20:33.098222",
+ "modified_by": "Administrator",
+ "module": "Dv Insights",
+ "name": "Sign Off Details",
+ "naming_rule": "Random",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

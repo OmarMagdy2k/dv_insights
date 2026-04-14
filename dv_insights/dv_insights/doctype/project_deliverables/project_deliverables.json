@@ -1,0 +1,71 @@
+{
+ "actions": [],
+ "creation": "2026-04-14 12:24:14.169371",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "deliverable_name",
+  "module",
+  "is_customisation",
+  "status",
+  "acceptance_status",
+  "brief_description"
+ ],
+ "fields": [
+  {
+   "fieldname": "deliverable_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Deliverable Name"
+  },
+  {
+   "fieldname": "module",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Module",
+   "options": "Module Def"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_customisation",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Customisation "
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "\nCompleted\nPending\nWIP\nCancelled\nScrapped\nOn Hold"
+  },
+  {
+   "fieldname": "acceptance_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Acceptance Status",
+   "options": "\nReceived Sign Off\nAwaiting Sign Off"
+  },
+  {
+   "fieldname": "brief_description",
+   "fieldtype": "Small Text",
+   "label": "Brief Description"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-04-14 12:24:14.169371",
+ "modified_by": "Administrator",
+ "module": "Dv Insights",
+ "name": "Project Deliverables",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

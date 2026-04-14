@@ -23,12 +23,14 @@
   {
    "fieldname": "handover_date",
    "fieldtype": "Date",
+   "in_list_view": 1,
    "label": "Handover Date",
    "reqd": 1
   },
   {
    "fieldname": "opportunity_updated",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "Opportunity Updated",
    "options": "\nYes\nNo",
    "reqd": 1
@@ -36,6 +38,7 @@
   {
    "fieldname": "agreement_signed",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "Agreement Signed",
    "options": "\nYes\nNo",
    "reqd": 1
@@ -43,6 +46,7 @@
   {
    "fieldname": "payment_received",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "Payment Received",
    "options": "\nYes\nNo",
    "reqd": 1
@@ -53,14 +57,16 @@
   },
   {
    "fieldname": "sales_order_created",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Sales Order Created",
+   "options": "Sales Order",
    "reqd": 1
   },
   {
    "fieldname": "sales_invoice_created",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Sales Invoice Created",
+   "options": "Sales Invoice",
    "reqd": 1
   },
   {
@@ -99,7 +105,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-04-06 17:27:00.000000",
+ "modified": "2026-04-07 12:44:03.246815",
  "modified_by": "Administrator",
  "module": "Dv Insights",
  "name": "Handover Checklist",

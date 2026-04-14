@@ -1,0 +1,88 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "SFD-.#####",
+ "creation": "2026-04-14 12:04:43.064996",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "project_view_section",
+  "lead",
+  "date_zjvz",
+  "column_break_imrq",
+  "overall_satisfaction",
+  "your_feedback_section",
+  "please_write_additional_feedback"
+ ],
+ "fields": [
+  {
+   "fieldname": "project_view_section",
+   "fieldtype": "Section Break",
+   "label": "Project View"
+  },
+  {
+   "fieldname": "lead",
+   "fieldtype": "Link",
+   "label": "Lead",
+   "options": "Lead"
+  },
+  {
+   "fieldname": "date_zjvz",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "options": "Today"
+  },
+  {
+   "fieldname": "column_break_imrq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "overall_satisfaction",
+   "fieldtype": "Rating",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Overall Satisfaction Level",
+   "reqd": 1
+  },
+  {
+   "fieldname": "your_feedback_section",
+   "fieldtype": "Section Break",
+   "label": "Anything Else?"
+  },
+  {
+   "fieldname": "please_write_additional_feedback",
+   "fieldtype": "Small Text",
+   "label": "Tell us more"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-04-14 12:04:43.064996",
+ "modified_by": "Administrator",
+ "module": "Dv Insights",
+ "name": "Sales Demo Feedback",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

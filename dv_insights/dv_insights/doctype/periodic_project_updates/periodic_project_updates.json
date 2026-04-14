@@ -1,0 +1,142 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "project.-.###",
+ "creation": "2026-04-14 12:06:17.209026",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "project",
+  "project_manager",
+  "project_champion_customer",
+  "_completed",
+  "column_break_y5kj",
+  "update_on",
+  "reporting_till",
+  "section_break_li1r",
+  "completed_activities",
+  "column_break_vekn",
+  "ongoing_activities",
+  "section_break_3a85",
+  "next_steps",
+  "column_break_fqw2",
+  "bottlenecks"
+ ],
+ "fields": [
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Project",
+   "options": "Project",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "project.custom_project_manager",
+   "fieldname": "project_manager",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Project Manager ",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "project.custom_project_champion_customer",
+   "fieldname": "project_champion_customer",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Project Champion Customer",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "project.percent_complete",
+   "fieldname": "_completed",
+   "fieldtype": "Data",
+   "label": "% Completed",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_y5kj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "update_on",
+   "fieldtype": "Date",
+   "label": "Reporting From"
+  },
+  {
+   "fieldname": "reporting_till",
+   "fieldtype": "Date",
+   "label": "Reporting Till"
+  },
+  {
+   "fieldname": "section_break_li1r",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "completed_activities",
+   "fieldtype": "Text Editor",
+   "label": "Completed Activities"
+  },
+  {
+   "fieldname": "column_break_vekn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ongoing_activities",
+   "fieldtype": "Text Editor",
+   "label": "Ongoing Activities"
+  },
+  {
+   "fieldname": "section_break_3a85",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "next_steps",
+   "fieldtype": "Text Editor",
+   "label": "Next Steps"
+  },
+  {
+   "fieldname": "column_break_fqw2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bottlenecks",
+   "fieldtype": "Text Editor",
+   "label": "Bottlenecks"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-04-14 12:06:17.209026",
+ "modified_by": "Administrator",
+ "module": "Dv Insights",
+ "name": "Periodic Project Updates",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
