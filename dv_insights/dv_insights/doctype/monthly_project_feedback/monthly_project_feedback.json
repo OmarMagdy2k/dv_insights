@@ -1,0 +1,243 @@
+{
+ "actions": [],
+ "autoname": "MPF-.project.-.YYYY.-.#####",
+ "creation": "2026-04-14 18:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "project_details_section",
+  "project",
+  "project_name",
+  "customer",
+  "column_break_proj",
+  "feedback_date",
+  "feedback_month",
+  "project_manager",
+  "ratings_section",
+  "overall_satisfaction",
+  "communication_rating",
+  "column_break_ratings",
+  "delivery_quality_rating",
+  "timeliness_rating",
+  "column_break_ratings2",
+  "consultant_knowledge_rating",
+  "responsiveness_rating",
+  "project_progress_section",
+  "completed_tasks_this_month",
+  "feedback_section",
+  "what_went_well",
+  "column_break_fb",
+  "improvement_areas",
+  "customer_comments_section",
+  "customer_comments",
+  "internal_section",
+  "internal_notes",
+  "follow_up_action"
+ ],
+ "fields": [
+  {
+   "fieldname": "project_details_section",
+   "fieldtype": "Section Break",
+   "label": "Project Details"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Project",
+   "options": "Project",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "project.project_name",
+   "fieldname": "project_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Project Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "project.customer",
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_proj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "feedback_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Feedback Date",
+   "reqd": 1
+  },
+  {
+   "description": "e.g., April 2026",
+   "fieldname": "feedback_month",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Feedback Month"
+  },
+  {
+   "fetch_from": "project.custom_employee_name",
+   "fieldname": "project_manager",
+   "fieldtype": "Data",
+   "label": "Project Manager",
+   "read_only": 1
+  },
+  {
+   "bold": 1,
+   "fieldname": "ratings_section",
+   "fieldtype": "Section Break",
+   "label": "Customer Ratings"
+  },
+  {
+   "fieldname": "overall_satisfaction",
+   "fieldtype": "Rating",
+   "in_list_view": 1,
+   "label": "Overall Satisfaction"
+  },
+  {
+   "fieldname": "communication_rating",
+   "fieldtype": "Rating",
+   "label": "Communication Quality"
+  },
+  {
+   "fieldname": "column_break_ratings",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "delivery_quality_rating",
+   "fieldtype": "Rating",
+   "label": "Delivery Quality"
+  },
+  {
+   "fieldname": "timeliness_rating",
+   "fieldtype": "Rating",
+   "label": "Timeliness"
+  },
+  {
+   "fieldname": "column_break_ratings2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "consultant_knowledge_rating",
+   "fieldtype": "Rating",
+   "label": "Consultant Knowledge"
+  },
+  {
+   "fieldname": "responsiveness_rating",
+   "fieldtype": "Rating",
+   "label": "Responsiveness"
+  },
+  {
+   "fieldname": "feedback_section",
+   "fieldtype": "Section Break",
+   "label": "Detailed Feedback"
+  },
+  {
+   "fieldname": "what_went_well",
+   "fieldtype": "Text Editor",
+   "label": "What Went Well"
+  },
+  {
+   "fieldname": "column_break_fb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "improvement_areas",
+   "fieldtype": "Text Editor",
+   "label": "Areas for Improvement"
+  },
+  {
+   "fieldname": "customer_comments_section",
+   "fieldtype": "Section Break",
+   "label": "Customer Comments"
+  },
+  {
+   "fieldname": "customer_comments",
+   "fieldtype": "Text Editor",
+   "label": "Customer Comments"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "internal_section",
+   "fieldtype": "Section Break",
+   "label": "Internal Notes"
+  },
+  {
+   "fieldname": "internal_notes",
+   "fieldtype": "Small Text",
+   "label": "Internal Notes"
+  },
+  {
+   "fieldname": "follow_up_action",
+   "fieldtype": "Small Text",
+   "label": "Follow-up Action Required"
+  },
+  {
+   "fieldname": "project_progress_section",
+   "fieldtype": "Section Break",
+   "label": "Project Progress"
+  },
+  {
+   "fieldname": "completed_tasks_this_month",
+   "fieldtype": "Text Editor",
+   "label": "Completed Tasks this Month",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "link_doctype": "CAPA Log",
+   "link_fieldname": "linked_project"
+  }
+ ],
+ "modified": "2026-04-15 11:49:01.129616",
+ "modified_by": "Administrator",
+ "module": "Dv Insights",
+ "name": "Monthly Project Feedback",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "project,customer,feedback_month",
+ "sort_field": "feedback_date",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "project_name",
+ "track_changes": 1
+}

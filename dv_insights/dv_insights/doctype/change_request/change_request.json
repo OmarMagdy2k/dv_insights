@@ -1,0 +1,329 @@
+{
+ "actions": [],
+ "autoname": "CR-.project.-.YYYY.-.#####",
+ "creation": "2026-04-14 18:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "request_details_section",
+  "project",
+  "project_name",
+  "customer",
+  "column_break_req",
+  "request_date",
+  "requested_by",
+  "status",
+  "priority",
+  "description_section",
+  "change_description",
+  "justification",
+  "impact_section",
+  "impact_on_scope",
+  "column_break_impact",
+  "impact_on_timeline",
+  "column_break_impact2",
+  "impact_on_cost",
+  "timeline_section",
+  "original_end_date",
+  "new_end_date",
+  "additional_days",
+  "column_break_timeline",
+  "original_budget",
+  "revised_budget",
+  "additional_cost",
+  "invoice_section",
+  "new_invoice_schedule",
+  "approval_section",
+  "customer_approval_status",
+  "customer_sign_off",
+  "column_break_approval",
+  "approved_by",
+  "approval_date",
+  "approval_notes",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "request_details_section",
+   "fieldtype": "Section Break",
+   "label": "Request Details"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Project",
+   "options": "Project",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "project.project_name",
+   "fieldname": "project_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Project Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "project.customer",
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_req",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "request_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Request Date",
+   "reqd": 1
+  },
+  {
+   "description": "Name of person requesting the change",
+   "fieldname": "requested_by",
+   "fieldtype": "Data",
+   "label": "Requested By"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nPending Approval\nApproved\nRejected\nCompleted",
+   "reqd": 1
+  },
+  {
+   "default": "Medium",
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "label": "Priority",
+   "options": "Low\nMedium\nHigh\nCritical"
+  },
+  {
+   "bold": 1,
+   "fieldname": "description_section",
+   "fieldtype": "Section Break",
+   "label": "Change Description"
+  },
+  {
+   "fieldname": "change_description",
+   "fieldtype": "Text Editor",
+   "label": "Change Description",
+   "reqd": 1
+  },
+  {
+   "fieldname": "justification",
+   "fieldtype": "Text Editor",
+   "label": "Business Justification"
+  },
+  {
+   "bold": 1,
+   "fieldname": "impact_section",
+   "fieldtype": "Section Break",
+   "label": "Impact Assessment"
+  },
+  {
+   "fieldname": "impact_on_scope",
+   "fieldtype": "Text Editor",
+   "label": "Impact on Scope"
+  },
+  {
+   "fieldname": "column_break_impact",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "impact_on_timeline",
+   "fieldtype": "Text Editor",
+   "label": "Impact on Timeline"
+  },
+  {
+   "fieldname": "column_break_impact2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "impact_on_cost",
+   "fieldtype": "Text Editor",
+   "label": "Impact on Cost"
+  },
+  {
+   "fieldname": "timeline_section",
+   "fieldtype": "Section Break",
+   "label": "Timeline & Budget Revision"
+  },
+  {
+   "fetch_from": "project.expected_end_date",
+   "fieldname": "original_end_date",
+   "fieldtype": "Date",
+   "label": "Original End Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "new_end_date",
+   "fieldtype": "Date",
+   "label": "New End Date"
+  },
+  {
+   "fieldname": "additional_days",
+   "fieldtype": "Int",
+   "label": "Additional Days",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_timeline",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "original_budget",
+   "fieldtype": "Currency",
+   "label": "Original Budget"
+  },
+  {
+   "fieldname": "revised_budget",
+   "fieldtype": "Currency",
+   "label": "Revised Budget"
+  },
+  {
+   "fieldname": "additional_cost",
+   "fieldtype": "Currency",
+   "label": "Additional Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "invoice_section",
+   "fieldtype": "Section Break",
+   "label": "Revised Invoice Schedule"
+  },
+  {
+   "description": "Describe the updated invoicing milestones after this change",
+   "fieldname": "new_invoice_schedule",
+   "fieldtype": "Text Editor",
+   "label": "New Invoice Schedule"
+  },
+  {
+   "bold": 1,
+   "fieldname": "approval_section",
+   "fieldtype": "Section Break",
+   "label": "Customer Approval"
+  },
+  {
+   "default": "Pending",
+   "fieldname": "customer_approval_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Customer Approval Status",
+   "options": "Pending\nApproved\nRejected"
+  },
+  {
+   "description": "Attach customer sign-off email, document, or screenshot",
+   "fieldname": "customer_sign_off",
+   "fieldtype": "Attach",
+   "label": "Customer Sign-off Proof"
+  },
+  {
+   "fieldname": "column_break_approval",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Data",
+   "label": "Approved By (Customer)"
+  },
+  {
+   "fieldname": "approval_date",
+   "fieldtype": "Date",
+   "label": "Approval Date"
+  },
+  {
+   "fieldname": "approval_notes",
+   "fieldtype": "Small Text",
+   "label": "Approval Notes"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Change Request",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-04-14 17:18:53.745379",
+ "modified_by": "Administrator",
+ "module": "Dv Insights",
+ "name": "Change Request",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Projects User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "project,customer,status",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Blue",
+   "title": "Draft"
+  },
+  {
+   "color": "Yellow",
+   "title": "Pending Approval"
+  },
+  {
+   "color": "Green",
+   "title": "Approved"
+  },
+  {
+   "color": "Red",
+   "title": "Rejected"
+  },
+  {
+   "color": "Green",
+   "title": "Completed"
+  }
+ ],
+ "title_field": "project_name",
+ "track_changes": 1
+}

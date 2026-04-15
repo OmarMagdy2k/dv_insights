@@ -47,7 +47,9 @@ app_license = "mit"
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
-
+doctype_list_js = {
+    "Lead": "public/js/lead_list.js",
+}
 # Svg Icons
 # ------------------
 # include app icons in desk
@@ -86,6 +88,7 @@ app_license = "mit"
 after_install = [
     "dv_insights.setup.setup_implementation_metrics_fields.execute",
     "dv_insights.setup.setup_training_data.execute",
+    "dv_insights.setup.setup_audit_nc_fields.execute",
 ]
 
 # Uninstallation

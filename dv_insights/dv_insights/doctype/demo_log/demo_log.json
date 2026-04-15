@@ -1,0 +1,283 @@
+{
+ "actions": [],
+ "autoname": "DEMO-.YYYY.-.#####",
+ "creation": "2026-04-14 18:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "demo_details_section",
+  "lead",
+  "lead_name",
+  "deal",
+  "column_break_demo",
+  "demo_date",
+  "demo_type",
+  "conducted_by",
+  "attendees_section",
+  "attendees_from_customer",
+  "column_break_att",
+  "attendees_from_team",
+  "demo_content_section",
+  "modules_demonstrated",
+  "column_break_mod",
+  "demo_environment",
+  "sample_data_used",
+  "outcome_section",
+  "outcome",
+  "customer_interest_level",
+  "column_break_outcome",
+  "next_steps",
+  "follow_up_date",
+  "feedback_section",
+  "feedback_sent",
+  "feedback_sent_date",
+  "column_break_fb",
+  "feedback_received",
+  "feedback_link",
+  "notes_section",
+  "demo_notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "demo_details_section",
+   "fieldtype": "Section Break",
+   "label": "Demo Details"
+  },
+  {
+   "fieldname": "lead",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Lead",
+   "options": "Lead"
+  },
+  {
+   "fetch_from": "lead.lead_name",
+   "fieldname": "lead_name",
+   "fieldtype": "Data",
+   "label": "Lead Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "deal",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "CRM Deal",
+   "description": "Reference to CRM Deal name if applicable"
+  },
+  {
+   "fieldname": "column_break_demo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "demo_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Demo Date",
+   "reqd": 1
+  },
+  {
+   "default": "First Demo",
+   "fieldname": "demo_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Demo Type",
+   "options": "First Demo\nFollow-up Demo\nTechnical Demo\nPOC\nCustom Demo"
+  },
+  {
+   "default": "__user",
+   "fieldname": "conducted_by",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Conducted By",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "attendees_section",
+   "fieldtype": "Section Break",
+   "label": "Attendees"
+  },
+  {
+   "description": "Names and roles of customer attendees",
+   "fieldname": "attendees_from_customer",
+   "fieldtype": "Small Text",
+   "label": "Customer Attendees"
+  },
+  {
+   "fieldname": "column_break_att",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Internal team members present",
+   "fieldname": "attendees_from_team",
+   "fieldtype": "Small Text",
+   "label": "Team Attendees"
+  },
+  {
+   "bold": 1,
+   "fieldname": "demo_content_section",
+   "fieldtype": "Section Break",
+   "label": "Demo Content"
+  },
+  {
+   "description": "List of modules/features demonstrated",
+   "fieldname": "modules_demonstrated",
+   "fieldtype": "Small Text",
+   "label": "Modules Demonstrated",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_mod",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "demo_environment",
+   "fieldtype": "Data",
+   "label": "Demo Environment URL"
+  },
+  {
+   "default": "0",
+   "fieldname": "sample_data_used",
+   "fieldtype": "Check",
+   "label": "Customer Sample Data Used"
+  },
+  {
+   "fieldname": "outcome_section",
+   "fieldtype": "Section Break",
+   "label": "Outcome"
+  },
+  {
+   "default": "Positive",
+   "fieldname": "outcome",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Outcome",
+   "options": "Positive\nNeutral\nNegative"
+  },
+  {
+   "fieldname": "customer_interest_level",
+   "fieldtype": "Rating",
+   "label": "Customer Interest Level"
+  },
+  {
+   "fieldname": "column_break_outcome",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "next_steps",
+   "fieldtype": "Small Text",
+   "label": "Next Steps"
+  },
+  {
+   "fieldname": "follow_up_date",
+   "fieldtype": "Date",
+   "label": "Follow-up Date"
+  },
+  {
+   "fieldname": "feedback_section",
+   "fieldtype": "Section Break",
+   "label": "Feedback Tracking"
+  },
+  {
+   "default": "0",
+   "fieldname": "feedback_sent",
+   "fieldtype": "Check",
+   "label": "Feedback Form Sent"
+  },
+  {
+   "depends_on": "eval:doc.feedback_sent",
+   "fieldname": "feedback_sent_date",
+   "fieldtype": "Date",
+   "label": "Feedback Sent Date"
+  },
+  {
+   "fieldname": "column_break_fb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "feedback_received",
+   "fieldtype": "Check",
+   "label": "Feedback Received"
+  },
+  {
+   "depends_on": "eval:doc.feedback_received",
+   "fieldname": "feedback_link",
+   "fieldtype": "Link",
+   "label": "Linked Feedback",
+   "options": "Demo Feedback"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "notes_section",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "demo_notes",
+   "fieldtype": "Text Editor",
+   "label": "Demo Notes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "link_doctype": "Demo Feedback",
+   "link_fieldname": "demo_log"
+  }
+ ],
+ "modified": "2026-04-14 18:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Dv Insights",
+ "name": "Demo Log",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "lead,demo_date,conducted_by",
+ "sort_field": "demo_date",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Green",
+   "title": "Positive"
+  },
+  {
+   "color": "Yellow",
+   "title": "Neutral"
+  },
+  {
+   "color": "Red",
+   "title": "Negative"
+  }
+ ],
+ "title_field": "lead_name",
+ "track_changes": 1
+}

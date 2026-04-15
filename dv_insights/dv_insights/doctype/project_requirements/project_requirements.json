@@ -17,6 +17,21 @@
   "col_break_4",
   "customer_name",
   "status",
+  "bant_qualification_section",
+  "budget_confirmed",
+  "budget_notes",
+  "column_break_bant1",
+  "authority_identified",
+  "authority_notes",
+  "column_break_bant2",
+  "need_validated",
+  "need_notes",
+  "column_break_bant3",
+  "timeline_confirmed",
+  "timeline_notes",
+  "bant_summary_section",
+  "qualification_notes",
+  "qualification_score",
   "personnel_details_section",
   "quotation",
   "col_break_5",
@@ -25,7 +40,22 @@
   "proposed_am",
   "contract",
   "col_break_7",
-  "contract_signed_date"
+  "contract_signed_date",
+  "handover_section",
+  "handover_date",
+  "handover_status",
+  "column_break_ho1",
+  "implementation_team",
+  "customer_project_champion",
+  "kickoff_section",
+  "kickoff_call_date",
+  "kickoff_completed",
+  "column_break_kick",
+  "project",
+  "handover_summary_section",
+  "business_context",
+  "requirement_documents",
+  "handover_notes"
  ],
  "fields": [
   {
@@ -73,7 +103,9 @@
   {
    "fieldname": "lead_qualification",
    "fieldtype": "Data",
-   "label": "Lead Qualification"
+   "label": "Lead Qualification",
+   "read_only": 1,
+   "description": "Auto-calculated from BANT below"
   },
   {
    "fieldname": "col_break_4",
@@ -93,6 +125,90 @@
    "options": "Open\nIn Progress\nHanded Over\nClosed\nCancelled",
    "default": "Open",
    "reqd": 1
+  },
+  {
+   "bold": 1,
+   "description": "BANT/MEDDIC qualification criteria — must be consistently captured per audit requirement",
+   "fieldname": "bant_qualification_section",
+   "fieldtype": "Section Break",
+   "label": "BANT Qualification"
+  },
+  {
+   "default": "0",
+   "fieldname": "budget_confirmed",
+   "fieldtype": "Check",
+   "label": "Budget Confirmed"
+  },
+  {
+   "fieldname": "budget_notes",
+   "fieldtype": "Small Text",
+   "label": "Budget Details",
+   "description": "Confirmed budget range, funding source, approval process"
+  },
+  {
+   "fieldname": "column_break_bant1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "authority_identified",
+   "fieldtype": "Check",
+   "label": "Authority Identified"
+  },
+  {
+   "fieldname": "authority_notes",
+   "fieldtype": "Small Text",
+   "label": "Authority Details",
+   "description": "Decision-maker name, role, and decision process"
+  },
+  {
+   "fieldname": "column_break_bant2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "need_validated",
+   "fieldtype": "Check",
+   "label": "Need Validated"
+  },
+  {
+   "fieldname": "need_notes",
+   "fieldtype": "Small Text",
+   "label": "Need Details",
+   "description": "Pain points, current process gaps, desired outcomes"
+  },
+  {
+   "fieldname": "column_break_bant3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "timeline_confirmed",
+   "fieldtype": "Check",
+   "label": "Timeline Confirmed"
+  },
+  {
+   "fieldname": "timeline_notes",
+   "fieldtype": "Small Text",
+   "label": "Timeline Details",
+   "description": "Expected go-live date, urgency drivers, external deadlines"
+  },
+  {
+   "fieldname": "bant_summary_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "qualification_notes",
+   "fieldtype": "Text Editor",
+   "label": "Qualification Notes",
+   "description": "Detailed discovery notes and qualification summary"
+  },
+  {
+   "description": "Auto-calculated: count of BANT criteria confirmed (0-4)",
+   "fieldname": "qualification_score",
+   "fieldtype": "Int",
+   "label": "BANT Score (out of 4)",
+   "read_only": 1
   },
   {
    "fieldname": "personnel_details_section",
@@ -143,12 +259,108 @@
    "fieldname": "contract_signed_date",
    "fieldtype": "Datetime",
    "label": "Contract Signed Date"
+  },
+  {
+   "bold": 1,
+   "description": "Formal Sales-to-Implementation handover",
+   "fieldname": "handover_section",
+   "fieldtype": "Section Break",
+   "label": "Sales to Implementation Handover"
+  },
+  {
+   "fieldname": "handover_date",
+   "fieldtype": "Date",
+   "label": "Handover Date"
+  },
+  {
+   "default": "Not Started",
+   "fieldname": "handover_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Handover Status",
+   "options": "Not Started\nIn Progress\nCompleted"
+  },
+  {
+   "fieldname": "column_break_ho1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "implementation_team",
+   "fieldtype": "Link",
+   "label": "Implementation Team Lead",
+   "options": "User",
+   "description": "PM or consultant assigned for implementation"
+  },
+  {
+   "fieldname": "customer_project_champion",
+   "fieldtype": "Data",
+   "label": "Customer Project Champion",
+   "description": "Customer's single point of contact for the project"
+  },
+  {
+   "fieldname": "kickoff_section",
+   "fieldtype": "Section Break",
+   "label": "Kickoff Details"
+  },
+  {
+   "fieldname": "kickoff_call_date",
+   "fieldtype": "Date",
+   "label": "Kickoff Call Date"
+  },
+  {
+   "default": "0",
+   "fieldname": "kickoff_completed",
+   "fieldtype": "Check",
+   "label": "Kickoff Completed"
+  },
+  {
+   "fieldname": "column_break_kick",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Linked Project",
+   "options": "Project",
+   "description": "Project created after handover"
+  },
+  {
+   "fieldname": "handover_summary_section",
+   "fieldtype": "Section Break",
+   "label": "Handover Summary"
+  },
+  {
+   "fieldname": "business_context",
+   "fieldtype": "Text Editor",
+   "label": "Business Context & Summary",
+   "description": "Business background, key requirements, and context for the implementation team"
+  },
+  {
+   "fieldname": "requirement_documents",
+   "fieldtype": "Attach",
+   "label": "Requirement Documents",
+   "description": "Attach BRD, scope document, or any requirement files"
+  },
+  {
+   "fieldname": "handover_notes",
+   "fieldtype": "Small Text",
+   "label": "Handover Notes",
+   "description": "Any additional notes for the implementation team"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2026-04-06 17:05:35.717071",
+ "links": [
+  {
+   "link_doctype": "Change Request",
+   "link_fieldname": "project"
+  },
+  {
+   "link_doctype": "Weekly Project Update",
+   "link_fieldname": "project"
+  }
+ ],
+ "modified": "2026-04-14 18:00:00.000000",
  "modified_by": "Administrator",
  "module": "Dv Insights",
  "name": "Project Requirements",
@@ -177,5 +389,6 @@
    "title": "Handed Over"
   }
  ],
- "title_field": "lead"
+ "title_field": "lead",
+ "track_changes": 1
 }

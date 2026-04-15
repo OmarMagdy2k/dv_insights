@@ -67,7 +67,7 @@
    "label": "Project Details"
   },
   {
-   "fetch_from": "project.project_owner",
+   "fetch_from": "project.custom_employee_name",
    "fieldname": "project_owner",
    "fieldtype": "Read Only",
    "label": "Project Owner",
@@ -81,7 +81,7 @@
    "read_only": 1
   },
   {
-   "fetch_from": "project.project_status_summary",
+   "fetch_from": "project.notes",
    "fieldname": "project_overview",
    "fieldtype": "Small Text",
    "label": "Project Overview"
@@ -204,7 +204,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-04-14 12:24:29.166147",
+ "modified": "2026-04-15 11:53:12.589708",
  "modified_by": "Administrator",
  "module": "Dv Insights",
  "name": "Handover To Support",

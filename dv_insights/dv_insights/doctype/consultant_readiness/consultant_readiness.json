@@ -15,6 +15,8 @@
   "target_completion",
   "status",
   "completion_date",
+  "readiness_tat_section",
+  "readiness_tat_days",
   "mentor_checklist_section",
   "overall_understanding",
   "core_modules",
@@ -25,6 +27,13 @@
   "doctypes_print_formats",
   "system_settings_module_settings_global_defaults",
   "user_and_role_permissions",
+  "demo_readiness_section",
+  "demo_preparation",
+  "product_demo_skills",
+  "column_break_demo",
+  "demo_feedback_handling",
+  "demo_environment_setup",
+  "demo_readiness_notes",
   "process_readiness_section",
   "implementation_process",
   "project_management_basics",
@@ -91,19 +100,32 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Status",
-   "options": "\nOpen\nIn Progress\nOn Hold\nCancelled\nCompleted",
+   "options": "\nOpen\nIn Progress\nOn Hold\nCancelled\nCompleted\nCertified Awesome",
    "reqd": 1
   },
   {
-   "depends_on": "eval:doc.status == \"Completed\"",
+   "depends_on": "eval:doc.status == \"Completed\" || doc.status == \"Certified Awesome\"",
    "fieldname": "completion_date",
    "fieldtype": "Date",
    "label": "Completion Date",
-   "mandatory_depends_on": "eval:doc.status==\"Certified Awesome\""
+   "mandatory_depends_on": "eval:doc.status==\"Completed\" || doc.status==\"Certified Awesome\""
+  },
+  {
+   "fieldname": "readiness_tat_section",
+   "fieldtype": "Section Break",
+   "label": "Readiness TAT"
+  },
+  {
+   "description": "Auto-calculated: Completion Date − Date of Joining",
+   "fieldname": "readiness_tat_days",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Readiness TAT (Days)",
+   "read_only": 1
   },
   {
    "bold": 1,
-   "description": "To be filled my evaluator",
+   "description": "To be filled by evaluator",
    "fieldname": "mentor_checklist_section",
    "fieldtype": "Section Break",
    "label": "Product Readiness"
@@ -140,25 +162,65 @@
    "default": "0",
    "fieldname": "other_products",
    "fieldtype": "Check",
-   "label": "Insights , Lending, Drive, Wiki, GamePlan, CRM, HelpDesk"
+   "label": "Insights, Lending, Drive, Wiki, GamePlan, CRM, HelpDesk"
   },
   {
    "default": "0",
    "fieldname": "doctypes_print_formats",
    "fieldtype": "Check",
-   "label": "DocTypes, Custom Fields, Workflows, Letter Heads and Print Formats."
+   "label": "DocTypes, Custom Fields, Workflows, Letter Heads and Print Formats"
   },
   {
    "default": "0",
    "fieldname": "system_settings_module_settings_global_defaults",
    "fieldtype": "Check",
-   "label": "System Settings, Module Settings, Global Defaults "
+   "label": "System Settings, Module Settings, Global Defaults"
   },
   {
    "default": "0",
    "fieldname": "user_and_role_permissions",
    "fieldtype": "Check",
    "label": "User and Role Permissions"
+  },
+  {
+   "bold": 1,
+   "description": "To be filled by evaluator — per audit observation: demo readiness and TAT should be displayed",
+   "fieldname": "demo_readiness_section",
+   "fieldtype": "Section Break",
+   "label": "Demo Readiness"
+  },
+  {
+   "default": "0",
+   "fieldname": "demo_preparation",
+   "fieldtype": "Check",
+   "label": "Demo preparation and planning"
+  },
+  {
+   "default": "0",
+   "fieldname": "product_demo_skills",
+   "fieldtype": "Check",
+   "label": "Product demonstration skills"
+  },
+  {
+   "fieldname": "column_break_demo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "demo_feedback_handling",
+   "fieldtype": "Check",
+   "label": "Handling customer questions during demo"
+  },
+  {
+   "default": "0",
+   "fieldname": "demo_environment_setup",
+   "fieldtype": "Check",
+   "label": "Demo environment setup and sample data"
+  },
+  {
+   "fieldname": "demo_readiness_notes",
+   "fieldtype": "Small Text",
+   "label": "Demo Readiness Notes"
   },
   {
    "bold": 1,
@@ -232,7 +294,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-04-14 12:07:11.187784",
+ "modified": "2026-04-14 18:00:00.000000",
  "modified_by": "Administrator",
  "module": "Dv Insights",
  "name": "Consultant Readiness",

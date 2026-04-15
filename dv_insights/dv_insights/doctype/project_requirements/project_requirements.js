@@ -3,6 +3,8 @@
 
 frappe.ui.form.on("Project Requirements", {
 	refresh(frm) {
+		frm.trigger("calculate_bant_score");
+
 		frm.set_query("opportunity", function () {
 			return {
 				filters: {
@@ -14,41 +16,83 @@ frappe.ui.form.on("Project Requirements", {
 
 		frm.set_query("customer", function () {
 			let filters = {};
-
 			if (frm.doc.lead) {
 				filters["lead_name"] = frm.doc.lead;
 			}
-			if (frm.doc.opportunity) {
-				filters["opportunity_name"] = ["in", [frm.doc.opportunity || ""]];
-			}
-
+			// if (frm.doc.opportunity) {
+			// 	filters["opportunity_name"] = ["in", [frm.doc.opportunity || ""]];
+			// }
 			return { filters };
 		});
 
 		frm.set_query("quotation", function () {
-			let filters = {};
-
-            filters["quotation_to"] = "Lead";
-            filters["party_name"] = frm.doc.lead;
-
-			return { filters };
+			return {
+				filters: {
+					quotation_to: "Lead",
+					party_name: frm.doc.lead,
+				},
+			};
 		});
+
+		// Handover actions
+		if (
+			!frm.is_new() &&
+			frm.doc.status === "In Progress" &&
+			frm.doc.handover_status !== "Completed"
+		) {
+			frm.add_custom_button(
+				__("Complete Handover"),
+				() => {
+					if (!frm.doc.handover_date) {
+						frappe.msgprint(__("Please set the Handover Date first."));
+						return;
+					}
+					if (!frm.doc.implementation_team) {
+						frappe.msgprint(__("Please assign an Implementation Team Lead."));
+						return;
+					}
+					frm.set_value("handover_status", "Completed");
+					frm.set_value("status", "Handed Over");
+					frm.save();
+					frappe.show_alert({
+						message: __("Handover completed successfully"),
+						indicator: "green",
+					});
+				},
+				__("Actions")
+			);
+		}
 	},
 
-	// When Lead changes → clear downstream fields & re-apply filters
+	// BANT field changes → recalculate score
+	budget_confirmed(frm) { frm.trigger("calculate_bant_score"); },
+	authority_identified(frm) { frm.trigger("calculate_bant_score"); },
+	need_validated(frm) { frm.trigger("calculate_bant_score"); },
+	timeline_confirmed(frm) { frm.trigger("calculate_bant_score"); },
+
+	calculate_bant_score(frm) {
+		const score =
+			cint(frm.doc.budget_confirmed) +
+			cint(frm.doc.authority_identified) +
+			cint(frm.doc.need_validated) +
+			cint(frm.doc.timeline_confirmed);
+
+		frm.set_value("qualification_score", score);
+
+		const labels = { 0: "Not Qualified", 1: "Weak", 2: "Moderate", 3: "Strong", 4: "Fully Qualified" };
+		frm.set_value("lead_qualification", labels[score] || "");
+	},
+
+	// When Lead changes → clear downstream fields
 	lead(frm) {
 		frm.set_value("opportunity", "");
 		frm.set_value("customer", "");
 		frm.set_value("quotation", "");
-		frm._opportunity_customer = null;
 	},
 
-	// When Opportunity changes → auto-fill Customer if it's a Customer-type opportunity,
-	// else clear and re-apply filter
 	opportunity(frm) {
 		frm.set_value("customer", "");
 		frm.set_value("quotation", "");
-		frm._opportunity_customer = null;
 
 		if (!frm.doc.opportunity) return;
 
@@ -58,17 +102,14 @@ frappe.ui.form.on("Project Requirements", {
 			["opportunity_from", "party_name"],
 			(r) => {
 				if (r && r.opportunity_from === "Customer" && r.party_name) {
-					frm._opportunity_customer = r.party_name;
 					frm.set_value("customer", r.party_name);
 				}
-				// Refresh query after fetching so the filter is active
 				frm.refresh_field("customer");
 				frm.refresh_field("quotation");
 			}
 		);
 	},
 
-	// When Customer changes → clear Quotation
 	customer(frm) {
 		frm.set_value("quotation", "");
 	},
